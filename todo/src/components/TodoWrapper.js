@@ -10,11 +10,25 @@ export const TodoWrapper = () => {
 
   const addTodo = todo => {
     setTodos([...todos, {id: uuidv4(), task: todo, completed: false, isEditing: false}]);
-    console.log(todos)
+    
   }
 
   const toggleComplete = id => {
-    setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+    
+    const completedDate = new Date() 
+    // const date = completedDate.getMonth() + '/' + completedDate.getDate()
+    // const time = completedDate.getHours() + ":" + completedDate.getMinutes()
+    // const ampm = completedDate.toLocaleString[-2] + completedDate.toLocaleString[-1]
+
+    setTodos(
+      todos.map(todo => 
+        todo.id === id ?
+          {
+            ...todo, completedAt: completedDate.toLocaleString(), completed: !todo.completed
+          } : 
+          todo
+      )
+    )
   }
 
   const deleteTodo = id => {

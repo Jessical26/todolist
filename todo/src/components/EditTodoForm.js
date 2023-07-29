@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export const EditTodoForm = ({editTodo, task}) => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState(task.task)
   const handleSubmit = e => {
     e.preventDefault(); //prevent default action so it doesn't refresh page
     editTodo(value, task.id); 
